@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velora - Hero Slider</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F1;
+        }
+
+        .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .fashion-bg-text {
+            font-size: 25vw;
+            line-height: 0.8;
+            letter-spacing: -0.05em;
+            color: rgba(255, 255, 255, 0.8);
+            z-index: 1;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 1024px) {
+            .fashion-bg-text {
+                font-size: 22vw;
+            }
+        }
+
+        .model-img {
+            z-index: 10;
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.1));
+        }
+
+        .nav-link {
+            font-size: 13px;
+            text-transform: capitalize;
+            color: #333;
+        }
+
+        /* Slider Nav Buttons */
+        .slider-btn {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .slider-btn:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <!-- Header / Navbar -->
+    <nav class="flex justify-between items-center px-6 md:px-10 py-6 absolute w-full z-50">
+        <div class="hidden lg:flex space-x-6">
+            <a href="#" class="nav-link">New Arrivals</a>
+            <a href="#" class="nav-link">Shop</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Blog</a>
+        </div>
+
+        <div class="lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </div>
+
+        <div class="text-2xl md:text-3xl font-bold tracking-widest serif-font">VELORA</div>
+
+        <div class="flex space-x-3 md:space-x-6 items-center">
+            <button class="text-xs md:text-sm">Search</button>
+            <button class="text-xs md:text-sm hidden sm:block">Account</button>
+            <button class="text-xs md:text-sm">Cart (0)</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero-section"
+        class="relative min-h-screen lg:h-screen w-full flex items-center justify-center overflow-hidden pt-24 pb-10 lg:py-0 transition-colors duration-1000"
+        style="background: #e5fadf;">
+
+        <!-- Background Large Text -->
+        <div id="bg-text"
+            class="absolute inset-0 flex items-center justify-center fashion-bg-text font-bold opacity-20 lg:opacity-40 uppercase pointer-events-none text-6xl md:text-[12rem] lg:text-[15rem]">
+            EXPORT
+        </div>
+
+        <!-- Content Layout Container -->
+        <div
+            class="container mx-auto px-6 md:px-10 flex flex-col lg:grid lg:grid-cols-12 items-center relative z-20 h-full lg:pt-16">
+
+            <!-- Left Side: Headline & Quote -->
+            <div
+                class="order-1 col-span-12 lg:col-span-4 flex flex-col justify-center text-center lg:text-left space-y-4 lg:space-y-10 mb-8 lg:mb-0">
+                <div class="hero-text-anim">
+                    <h1 id="hero-title" class="text-3xl md:text-5xl lg:text-5xl serif-font leading-tight text-gray-900">
+                        Premium Ladies Garments
+                        <span
+                            class="block text-xl md:text-2xl mt-2 font-sans font-light tracking-wide text-gray-600 italic">
+                            Exporter & Supplier Worldwide
+                        </span>
+                    </h1>
+                </div>
+
+                <div class="hidden md:block max-w-xs mx-auto lg:mx-0 border-l-2 border-gray-300 pl-4 hero-text-anim">
+                    <p id="hero-quote" class="text-xs md:text-sm italic text-gray-600 leading-relaxed">
+                        "Delivering high-quality ethnic & modern wear across the globe."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Center: Model Image with Tags -->
+            <div
+                class="order-2 col-span-12 lg:col-span-4 relative flex justify-center items-end h-[40vh] md:h-[50vh] lg:h-full">
+                <!-- Desktop image height limited to 80% to avoid header overlap -->
+                <img id="hero-img" src="./flirting-young-sexy-woman.png" alt="Premium Garments"
+                    class="model-img h-full lg:h-[80%] object-contain">
+
+                <!-- Floating Tags - Position adjusted for Desktop vs Mobile -->
+                <div id="tag-1"
+                    class="absolute top-[25%] -right-[40%] translate-x-4 md:translate-x-0 md:-right-[60%] lg:right-4 z-10 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[7px] md:text-[10px] uppercase tracking-widest shadow-md flex items-center space-x-1.5 tag-anim border border-white/20">
+                    <span id="tag-1-text">Premium Quality</span>
+                    <div class="w-1 h-1 md:w-1.5 md:h-1.5 bg-green-600 rounded-full"></div>
+                </div>
+
+                <!-- Tag 2: Bottom Left (Pushed left on mobile) -->
+                <div id="tag-2"
+                    class="absolute bottom-[20%] -left-[40%] -translate-x-4 md:translate-x-0 md:-left-[50%] lg:left-4 z-10 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[7px] md:text-[10px] uppercase tracking-widest shadow-md flex items-center space-x-1.5 tag-anim border border-white/20">
+                    <div class="w-1 h-1 md:w-1.5 md:h-1.5 bg-green-600 rounded-full"></div>
+                    <span id="tag-2-text">Global Shipping</span>
+                </div>
+            </div>
+
+            <!-- Right Side: Description & Buttons -->
+            <div
+                class="order-3 col-span-12 lg:col-span-4 flex flex-col justify-center text-center lg:text-left space-y-8 lg:pl-10 mt-8 lg:mt-0">
+                <div class="space-y-6 hero-text-anim">
+                    <p id="hero-desc" class="text-xs md:text-sm text-gray-500 leading-relaxed max-w-sm mx-auto lg:mx-0">
+                        Specializing in bulk supply of premium ladies' apparel. International standards, ethical
+                        sourcing, and timely delivery.
+                    </p>
+
+                    <div class="flex flex-row items-center justify-center lg:justify-start gap-4">
+                        <button
+                            class="bg-black text-white px-6 py-3 rounded-full text-[10px] md:text-xs flex items-center group shadow-lg transition-all hover:bg-gray-800">
+                            View Products <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                        </button>
+                        <button
+                            class="border border-black text-black px-6 py-3 rounded-full text-[10px] md:text-xs hover:bg-black hover:text-white transition-all font-medium">
+                            Contact Us
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trust Badge Section -->
+                <div
+                    class="hero-text-anim flex items-center justify-center lg:justify-start space-x-4 pt-6 border-t border-gray-200">
+                    <div class="text-left">
+                        <p class="text-[10px] md:text-[11px] font-bold text-gray-900 tracking-wider uppercase">Trusted
+                            Global Partner</p>
+                        <p class="text-[9px] text-gray-500">ISO 9001:2015 Certified</p>
+                    </div>
+                    <div class="h-8 w-[1px] bg-gray-300"></div>
+                    <p class="text-[10px] md:text-[11px] font-bold text-gray-900">EST. 2010</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Navigation -->
+        <div class="absolute bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 flex space-x-4 z-50">
+            <button onclick="prevSlide()"
+                class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center bg-white/40 backdrop-blur-sm hover:bg-black hover:text-white transition-all shadow-sm">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+            <button onclick="nextSlide()"
+                class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center bg-white/40 backdrop-blur-sm hover:bg-black hover:text-white transition-all shadow-sm">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="relative py-24 lg:py-40 overflow-hidden" style="background-color: #F3F4F1;">
+
+        <!-- Background Large Text -->
+        <!-- <div id="bg-text"
+            class="absolute inset-0 flex items-center justify-end fashion-bg-text font-bold opacity-20 lg:opacity-40 uppercase pointer-events-none text-6xl md:text-[12rem] lg:text-[15rem]">
+            LEGACY
+        </div> -->
+
+        <div class="container mx-auto px-6 md:px-10 relative z-10">
+
+            <div class="mb-16 lg:mb-24 text-center lg:text-center about-anim">
+                <h4 class="text-[10px] md:text-[12px] font-bold uppercase tracking-[0.5em] text-green-700 mb-4">Discover
+                    Our Story</h4>
+                <h2 class="text-3xl md:text-5xl lg:text-6xl serif-font text-gray-900 leading-tight">
+                    Expertise in Export.<br>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-12 items-center gap-y-12 lg:gap-x-20">
+
+                <!-- Left Side: Image with Floating Tags -->
+                <div class="order-2 lg:order-1 col-span-12 lg:col-span-5 relative flex justify-center items-center">
+                    <div class="relative w-full max-w-md lg:max-w-none">
+                        <!-- Professional Industry Image -->
+                        <div class="aspect-[4/5] overflow-hidden shadow-2xl rounded-sm border-[10px] border-white">
+                            <img src="https://images.unsplash.com/photo-1558603668-6570496b66f8?auto=format&fit=crop&q=80&w=1000"
+                                alt="Our Manufacturing Unit" class="w-full h-full object-cover about-img-zoom">
+                        </div>
+
+                        <!-- Floating Badge: Experience -->
+                        <div
+                            class="absolute -top-6 -right-4 md:-right-8 bg-black text-white p-6 rounded-sm shadow-2xl z-20 about-tag hidden md:block">
+                            <div class="text-center">
+                                <span class="block text-3xl font-bold border-b border-white/30 pb-1">10+</span>
+                                <span class="block text-[9px] uppercase tracking-widest mt-2 leading-tight">Years
+                                    of<br>Excellence</span>
+                            </div>
+                        </div>
+
+                        <!-- Floating Tag: Certified -->
+                        <div
+                            class="absolute bottom-10 -left-6 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full text-[9px] md:text-[10px] uppercase tracking-widest shadow-lg flex items-center space-x-2 about-tag z-20 border border-gray-100">
+                            <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            <span class="font-bold text-gray-800">ISO 9001:2015 Certified</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Content -->
+                <div class="order-1 lg:order-2 col-span-12 lg:col-span-7 space-y-8 lg:pl-10">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-2 about-anim">
+                            <div class="w-8 h-[1px] bg-green-600"></div>
+                            <span class="text-[11px] font-bold uppercase tracking-[0.4em] text-green-700">Established
+                                Exporter</span>
+                        </div>
+                        <h2 class="text-2xl md:text-4xl xl:text-5xl serif-font text-gray-900 leading-[1.1] about-anim">
+                            Manufacturing Excellence <br> <span class="italic text-gray-400">& Global Logistics.</span>
+                        </h2>
+                    </div>
+
+                    <div class="max-w-xl space-y-6">
+                        <!-- Company Intro -->
+                        <p class="text-sm md:text-base text-gray-600 leading-relaxed about-anim">
+                            With over a decade of expertise, our company stands as a pillar of trust in the
+                            international garment trade. We operate state-of-the-art manufacturing units that blend
+                            traditional craftsmanship with modern technology. Specializing in bulk exports, we cater to
+                            premium brands and wholesale distributors worldwide, ensuring seamless logistics and
+                            uncompromising quality standards in every single stitch.
+                        </p>
+
+                        <!-- Vision & Mission -->
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 about-anim border-t border-gray-200 mt-6">
+                            <div class="space-y-3">
+                                <h4
+                                    class="font-bold text-xs uppercase tracking-[0.2em] text-gray-900 flex items-center">
+                                    <span class="w-1.5 h-1.5 bg-black rounded-full mr-2"></span> Our Vision
+                                </h4>
+                                <p class="text-[12px] text-gray-500 leading-relaxed">To become the world's most trusted
+                                    sourcing partner for sustainable and high-fashion ladies' apparel.</p>
+                            </div>
+                            <div class="space-y-3">
+                                <h4
+                                    class="font-bold text-xs uppercase tracking-[0.2em] text-gray-900 flex items-center">
+                                    <span class="w-1.5 h-1.5 bg-black rounded-full mr-2"></span> Our Promise
+                                </h4>
+                                <p class="text-[12px] text-gray-500 leading-relaxed">Providing 100% transparency,
+                                    competitive wholesale pricing, and guaranteed on-time global delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="pt-6 about-anim">
+                        <button
+                            class="bg-black text-white px-10 py-4 rounded-sm text-[10px] md:text-[11px] uppercase tracking-[0.2em] flex items-center group transition-all hover:bg-gray-800 shadow-lg">
+                            Request a Quote / Catalog
+                            <span class="ml-4 transform group-hover:translate-x-2 transition-transform">→</span>
+                        </button>
+                        <!-- Mobile only experience text -->
+                        <p class="mt-4 text-[10px] font-bold uppercase tracking-widest text-gray-400 md:hidden">10+
+                            Years Export Experience</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- B2B & Export Specialized Product Section -->
+    <section id="products-catalog" class="py-20 md:py-32 bg-[#F9FAF9]">
+        <div class="container mx-auto px-6 md:px-10">
+
+            <!-- Header Section -->
+            <div
+                class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6 border-b border-gray-200 pb-10">
+                <div class="max-w-2xl">
+                    <span
+                        class="inline-block px-3 py-1 bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-widest rounded-full mb-4">Global
+                        Supply Chain</span>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl serif-font text-gray-900 leading-tight">
+                        Product <span class="italic text-gray-400">Catalog.</span>
+                    </h2>
+                    <p class="mt-4 text-gray-500 text-sm md:text-base max-w-md">Browse our premium export-quality
+                        garments manufactured with international standards.</p>
+                </div>
+
+                <!-- Modern Filter Tabs (Responsive) -->
+                <div class="flex gap-2 overflow-x-auto pb-2 w-full md:w-auto no-scrollbar">
+                    <button
+                        class="px-6 py-2.5 bg-black text-white text-xs font-bold uppercase tracking-widest rounded-full whitespace-nowrap">All
+                        Items</button>
+                    <button
+                        class="px-6 py-2.5 bg-white border border-gray-200 text-gray-500 text-xs font-bold uppercase tracking-widest rounded-full hover:border-black hover:text-black transition-all whitespace-nowrap">Silk
+                        Collection</button>
+                    <button
+                        class="px-6 py-2.5 bg-white border border-gray-200 text-gray-500 text-xs font-bold uppercase tracking-widest rounded-full hover:border-black hover:text-black transition-all whitespace-nowrap">Cotton
+                        Basics</button>
+                    <button
+                        class="px-6 py-2.5 bg-white border border-gray-200 text-gray-500 text-xs font-bold uppercase tracking-widest rounded-full hover:border-black hover:text-black transition-all whitespace-nowrap">Occasion
+                        Wear</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+                <!-- B2B Product Card 1 -->
+                <div
+                    class="group bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col">
+                    <!-- Image Container -->
+                    <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&q=80&w=800"
+                            alt="Product"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+
+                        <!-- Badges -->
+                        <div class="absolute top-3 left-3 flex flex-col gap-2">
+                            <span
+                                class="bg-white/90 backdrop-blur-md px-2 py-1 text-[9px] font-bold uppercase text-gray-800 shadow-sm border border-white/20 rounded">ISO
+                                Certified</span>
+                            <span
+                                class="bg-green-600 px-2 py-1 text-[9px] font-bold uppercase text-white shadow-sm rounded">Ready
+                                to Ship</span>
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="p-5 flex flex-col flex-grow">
+                        <div class="mb-4">
+                            <h3
+                                class="text-lg font-bold text-gray-900 line-clamp-1 mb-1 group-hover:text-green-800 transition-colors">
+                                Premium Embroidered Tunic</h3>
+                            <p class="text-[11px] text-gray-400 font-medium uppercase tracking-wider">SKU: VEL-ETH-042
+                            </p>
+                        </div>
+
+                        <!-- B2B Pricing Table (Small) -->
+                        <div class="grid grid-cols-2 gap-4 py-4 border-y border-gray-50 mb-5">
+                            <div class="border-r border-gray-50">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-tighter">Approx. Price
+                                </p>
+                                <p class="text-md font-bold text-gray-900">$12.50 - $18.00 <span
+                                        class="text-[10px] font-normal text-gray-500">/ Piece</span></p>
+                            </div>
+                            <div class="pl-2">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-tighter">Min. Order</p>
+                                <p class="text-md font-bold text-gray-900">100 Pieces</p>
+                            </div>
+                        </div>
+
+                        <!-- Specs List -->
+                        <ul class="text-[11px] text-gray-500 space-y-2 mb-6 flex-grow">
+                            <li class="flex justify-between"><span>Material:</span> <span
+                                    class="font-semibold text-gray-700">100% Pure Silk</span></li>
+                            <li class="flex justify-between"><span>Sizes:</span> <span
+                                    class="font-semibold text-gray-700">S, M, L, XL, XXL</span></li>
+                            <li class="flex justify-between"><span>Supply Ability:</span> <span
+                                    class="font-semibold text-gray-700">5000 Pcs / Month</span></li>
+                        </ul>
+
+                        <!-- Action Buttons -->
+                        <div class="flex gap-2">
+                            <button
+                                class="flex-1 bg-black text-white text-[10px] font-bold uppercase tracking-widest py-3 rounded hover:bg-gray-800 transition-colors">Get
+                                Best Quote</button>
+                            <button class="p-3 border border-gray-200 rounded hover:bg-gray-50 transition-colors">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 5v14M5 12h14"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repeat for Card 2 (Logic is same, change content) -->
+                <div
+                    class="group bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1551163943-3f6a855d1153?auto=format&fit=crop&q=80&w=800"
+                            alt="Product"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute top-3 left-3 flex flex-col gap-2">
+                            <span
+                                class="bg-white/90 backdrop-blur-md px-2 py-1 text-[9px] font-bold uppercase text-gray-800 shadow-sm border border-white/20 rounded">Export
+                                Quality</span>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <div class="mb-4">
+                            <h3
+                                class="text-lg font-bold text-gray-900 line-clamp-1 mb-1 group-hover:text-green-800 transition-colors">
+                                Hand-loomed Cotton Shirt</h3>
+                            <p class="text-[11px] text-gray-400 font-medium uppercase tracking-wider">SKU: VEL-MOD-019
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 py-4 border-y border-gray-50 mb-5">
+                            <div class="border-r border-gray-50">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-tighter">Approx. Price
+                                </p>
+                                <p class="text-md font-bold text-gray-900">$8.00 - $12.50 <span
+                                        class="text-[10px] font-normal text-gray-500">/ Piece</span></p>
+                            </div>
+                            <div class="pl-2">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-tighter">Min. Order</p>
+                                <p class="text-md font-bold text-gray-900">200 Pieces</p>
+                            </div>
+                        </div>
+                        <ul class="text-[11px] text-gray-500 space-y-2 mb-6 flex-grow">
+                            <li class="flex justify-between"><span>Material:</span> <span
+                                    class="font-semibold text-gray-700">Organic Cotton</span></li>
+                            <li class="flex justify-between"><span>Sizes:</span> <span
+                                    class="font-semibold text-gray-700">Customized</span></li>
+                            <li class="flex justify-between"><span>Supply Ability:</span> <span
+                                    class="font-semibold text-gray-700">10k Pcs / Month</span></li>
+                        </ul>
+                        <div class="flex gap-2">
+                            <button
+                                class="flex-1 bg-black text-white text-[10px] font-bold uppercase tracking-widest py-3 rounded hover:bg-gray-800 transition-colors">Get
+                                Best Quote</button>
+                            <button class="p-3 border border-gray-200 rounded hover:bg-gray-50 transition-colors">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 5v14M5 12h14"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More cards can be added here following the same structure -->
+
+            </div>
+
+            <!-- Pagination or View More -->
+            <div
+                class="mt-20 pt-10 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-sm text-gray-400">Showing 1-12 of 150+ Export Products</p>
+                <div class="flex gap-3">
+                    <button
+                        class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 hover:bg-black hover:text-white transition-all">←</button>
+                    <button
+                        class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 hover:bg-black hover:text-white transition-all">→</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+
+    <!-- Simple Modern Footer -->
+    <footer
+        class="bg-white py-12 px-10 flex flex-col md:flex-row justify-between items-center border-t border-gray-100">
+        <div class="text-2xl font-bold tracking-widest serif-font">VELORA</div>
+        <div class="flex space-x-8 mt-6 md:mt-0 uppercase text-[10px] tracking-[0.2em] font-medium text-gray-500">
+            <a href="#" class="hover:text-black transition-colors">Instagram</a>
+            <a href="#" class="hover:text-black transition-colors">Pinterest</a>
+            <a href="#" class="hover:text-black transition-colors">Twitter</a>
+        </div>
+        <p class="text-[10px] text-gray-400 mt-6 md:mt-0 uppercase tracking-widest">© 2024 Velora Studio</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for Scroll Animations
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate Text
+                    gsap.from(".about-anim", {
+                        y: 40,
+                        opacity: 0,
+                        duration: 1.2,
+                        stagger: 0.2,
+                        ease: "power4.out"
+                    });
+
+                    // Animate Tags
+                    gsap.from(".about-tag", {
+                        scale: 0,
+                        opacity: 0,
+                        duration: 1,
+                        stagger: 0.3,
+                        delay: 0.5,
+                        ease: "back.out(1.7)"
+                    });
+
+                    // Zoom effect on Image
+                    gsap.from(".about-img-zoom", {
+                        scale: 1.3,
+                        duration: 2.5,
+                        ease: "power2.out"
+                    });
+
+                    aboutObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        aboutObserver.observe(document.querySelector('.about-anim').parentElement);
+    </script>
+
+    <script>
+        // Slider Data
+        const slides = [
+            {
+                bgColor: "#e1ffda",
+                bgText: "FASHION",
+                title: "Clean Lines.<br class='hidden lg:block'> Conscious Living.",
+                quote: '"Timeless, wearable, and truly well-made."',
+                img: "./flirting-young-sexy-woman.png", // Replace with your image 1
+                tag1: "Beige Blazer",
+                tag2: "Cotton Trousers",
+                desc: "Timeless essentials for the modern minimalist. Designed to simplify your wardrobe — and elevate your everyday.",
+                reviews: "4.9 / 450 Reviews"
+            },
+            {
+                // bgColor: "#f5e6d3",
+                bgColor: "#fef5ea",
+                bgText: "MODERN",
+                title: "Effortless Style.<br class='hidden lg:block'> Bold Choices.",
+                quote: '"The perfect balance of luxury and comfort."',
+                img: "./flirting-young-sexy-woman.png", // Replace with your image 2
+                tag1: "Silk Shirt",
+                tag2: "Slim Jeans",
+                desc: "Elevate your daily look with pieces that speak for themselves. Crafted with precision for the modern soul.",
+                reviews: "4.8 / 320 Reviews"
+            },
+            {
+                // bgColor: "#d3e2f5",
+                bgColor: "#e8f2ff",
+                bgText: "ESSENCE",
+                title: "Pure Quality.<br class='hidden lg:block'> Urban Vibes.",
+                quote: '"Quality you can feel in every thread."',
+                img: "./flirting-young-sexy-woman.png", // Replace with your image 3
+                tag1: "Wool Coat",
+                tag2: "Black Boots",
+                desc: "Discover the new standard of premium apparel. Our winter collection is now live and waiting for you.",
+                reviews: "5.0 / 180 Reviews"
+            }
+        ];
+
+        let currentIndex = 0;
+        let isAnimating = false;
+
+        function updateSlide(index) {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            const slide = slides[index];
+            const tl = gsap.timeline({
+                onComplete: () => { isAnimating = false; }
+            });
+
+            // Fade Out
+            tl.to(".hero-text-anim, .model-img, .tag-anim, #bg-text", {
+                opacity: 0,
+                y: 20,
+                duration: 0.5,
+                stagger: 0.05,
+                ease: "power2.in"
+            });
+
+            // Change Content & Background
+            tl.add(() => {
+                document.getElementById('hero-section').style.background = slide.bgColor;
+                document.getElementById('bg-text').innerText = slide.bgText;
+                document.getElementById('hero-title').innerHTML = slide.title;
+                document.getElementById('hero-quote').innerText = slide.quote;
+                document.getElementById('hero-img').src = slide.img;
+                document.getElementById('tag-1-text').innerText = slide.tag1;
+                document.getElementById('tag-2-text').innerText = slide.tag2;
+                document.getElementById('hero-desc').innerText = slide.desc;
+                document.getElementById('hero-reviews').innerText = slide.reviews;
+            });
+
+            // Fade In
+            tl.to("#bg-text", { opacity: 0.4, scale: 1, duration: 1 }, "+=0.1");
+            tl.fromTo(".model-img", { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, ease: "power4.out" }, "-=0.8");
+            tl.fromTo(".hero-text-anim", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power4.out" }, "-=1");
+            tl.fromTo(".tag-anim", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, stagger: 0.2 }, "-=0.5");
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlide(currentIndex);
+        }
+
+        // Initial Animation on Page Load
+        window.addEventListener('load', () => {
+            const tl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.5 } });
+            tl.from(".model-img", { y: 100, opacity: 0 }, 0.2)
+                .from(".fashion-bg-text", { opacity: 0, scale: 1.1 }, 0.5)
+                .from(".hero-text-anim", { y: 30, opacity: 0, stagger: 0.2 }, 0.8)
+                .from(".tag-anim", { scale: 0, opacity: 0, stagger: 0.3 }, 1.2);
+        });
+    </script>
+</body>
+
+</html>
