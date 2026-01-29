@@ -59,6 +59,23 @@
             background-color: black;
             color: white;
         }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .snap-start {
+            scroll-snap-align: start;
+        }
     </style>
 </head>
 
@@ -386,7 +403,7 @@
                         <!-- Image Area -->
                         <div
                             class="relative aspect-[3/4] overflow-hidden rounded-[1.2rem] md:rounded-[1.8rem] bg-gray-50">
-                            <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&q=80&w=800"
+                            <img src="./palazzo1_370x.webp"
                                 class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110">
 
                             <!-- Floating Badge -->
@@ -559,7 +576,7 @@
                         <!-- Image Area -->
                         <div
                             class="relative aspect-[3/4] overflow-hidden rounded-[1.2rem] md:rounded-[1.8rem] bg-gray-50">
-                            <img src="https://images.unsplash.com/photo-1604691659443-26f93e274172?auto=format&fit=crop&q=80&w=800"
+                            <img src="./flirting-young-sexy-woman.png"
                                 class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110">
 
                             <!-- Floating Badge -->
@@ -623,8 +640,7 @@
             </div>
 
             <!-- Pagination or View More -->
-            <div
-                class="mt-20 pt-10 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class=" pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
                 <p class="text-sm text-gray-400">Showing 1-12 of 150+ Export Products</p>
                 <div class="flex gap-3">
                     <button
@@ -636,24 +652,176 @@
         </div>
     </section>
 
-    <style>
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
+    <!-- Best Selling - Bento Grid Style -->
+    <section class="max-w-7xl mx-auto px-4 py-16">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <span class="text-green-700 font-bold uppercase tracking-[0.2em] text-xs">Top Collections</span>
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Best Selling Products</h2>
+            </div>
+            <p class="text-gray-500 max-w-md text-sm md:text-base italic">
+                Explore our most popular artisanal fabrics and designs, trusted by global fashion brands.
+            </p>
+        </div>
+        <!-- Grid Wrapper -->
+        <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-none md:grid-rows-2 gap-4 h-auto md:h-[800px]">
 
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            /* IE and Edge */
-            scrollbar-width: none;
-            /* Firefox */
-        }
+            <!-- Large Featured Card (Banjara Jacket Style) -->
+            <div class="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-3xl bg-gray-200">
+                <img src="./BANJARA_JACKET.webp"
+                    class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
 
-        .snap-start {
-            scroll-snap-align: start;
-        }
-    </style>
+                <!-- Information Overlay -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6 md:p-10">
+                    <div class="mb-4">
+                        <span
+                            class="bg-green-700 text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">Fabric:
+                            Cotton Silk</span>
+                        <span
+                            class="ml-2 bg-white/20 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">MOQ:
+                            50 Pcs</span>
+                    </div>
+                    <div
+                        class="inline-block bg-black/60 backdrop-blur-xl border border-white/20 px-6 py-4 rounded-2xl w-fit">
+                        <h3 class="text-white text-xl md:text-3xl font-bold uppercase tracking-widest">Banjara Jacket
+                        </h3>
+                    </div>
+
+                    <!-- Desktop Hover Button -->
+                    <!-- <button
+                        class="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-black px-8 py-4 rounded-full font-bold uppercase text-xs tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-2xl hover:bg-black hover:text-white">
+                        Request Quote
+                    </button> -->
+
+                    <div
+                        class="hidden lg:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 inset-0 items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <button
+                            class="w-full bg-white text-black py-3.5 rounded-2xl font-bold text-xs uppercase tracking-[0.2em] shadow-2xl translate-y-6 group-hover:translate-y-0 transition-all duration-500 hover:bg-black hover:text-white">
+                            Request Quote
+                        </button>
+                    </div>
+
+                    <!-- Mobile/Tablet Static Button -->
+                    <button
+                        class="lg:hidden mt-6 w-full bg-white text-black py-4 rounded-xl font-bold uppercase text-xs tracking-widest">
+                        Request Quote
+                    </button>
+                </div>
+            </div>
+
+            <!-- Small Card 1 (Bags style) -->
+            <div class="md:col-span-1 group relative overflow-hidden rounded-3xl bg-gray-200 h-[400px] md:h-auto">
+                <img src="./DSC_0003_370x.webp"
+                    class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+
+                <!-- Content Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 flex flex-col justify-end p-6">
+                    <p class="text-[10px] text-white/80 font-bold mb-2 uppercase tracking-wider">Fabric: Canvas • MOQ:
+                        100</p>
+                    <div
+                        class="bg-black/60 backdrop-blur-lg border border-white/10 px-4 py-3 rounded-xl text-center mb-0 lg:mb-0">
+                        <h3 class="text-white text-sm font-bold uppercase tracking-widest">Bags & Clutches</h3>
+                    </div>
+
+                    <!-- Mobile & Tablet Static Button (Hidden on Desktop) -->
+                    <button
+                        class="lg:hidden mt-4 w-full bg-white text-black py-3 rounded-xl font-bold uppercase text-[10px] tracking-widest shadow-lg">
+                        Request Quote
+                    </button>
+                </div>
+
+                <!-- NEW Desktop Hover Button (Only visible on LG) -->
+                <div
+                    class="hidden lg:flex absolute inset-0 items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/10">
+                    <button
+                        class="w-full bg-white text-black py-3.5 rounded-2xl font-bold text-xs uppercase tracking-[0.2em] shadow-2xl translate-y-6 group-hover:translate-y-0 transition-all duration-500 hover:bg-black hover:text-white">
+                        Request Quote
+                    </button>
+                </div>
+            </div>
+
+            <!-- Small Card 2 (Home Decor style) -->
+            <div class="md:col-span-1 group relative overflow-hidden rounded-3xl bg-gray-200 h-[400px] md:h-auto">
+                <img src="./flirting-young-sexy-woman.png"
+                    class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 flex flex-col justify-end p-6">
+                    <p class="text-[10px] text-white/80 font-bold mb-2 uppercase tracking-wider">Fabric: Linen • MOQ:
+                        200</p>
+                    <div class="bg-black/60 backdrop-blur-lg border border-white/10 px-4 py-3 rounded-xl text-center">
+                        <h3 class="text-white text-sm font-bold uppercase tracking-widest">Home Decor</h3>
+                    </div>
+                    <button
+                        class="lg:hidden mt-4 w-full bg-white text-black py-3 rounded-xl font-bold uppercase text-[10px] tracking-widest shadow-lg">
+                        Request Quote
+                    </button>
+                </div>
+
+                <div
+                    class="hidden lg:flex absolute inset-0 items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/10">
+                    <button
+                        class="w-full bg-white text-black py-3.5 rounded-2xl font-bold text-xs uppercase tracking-[0.2em] shadow-2xl translate-y-6 group-hover:translate-y-0 transition-all duration-500 hover:bg-black hover:text-white">
+                        Request Quote
+                    </button>
+                </div>
+            </div>
+
+            <!-- Small Card 3 (Stoles style) -->
+            <div class="md:col-span-1 group relative overflow-hidden rounded-3xl bg-gray-200 h-[400px] md:h-auto">
+                <img src="./palazzo1_370x.webp"
+                    class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 flex flex-col justify-end p-6">
+                    <p class="text-[10px] text-white/80 font-bold mb-2 uppercase tracking-wider">Fabric: Silk • MOQ: 150
+                    </p>
+                    <div class="bg-black/60 backdrop-blur-lg border border-white/10 px-4 py-3 rounded-xl text-center">
+                        <h3 class="text-white text-sm font-bold uppercase tracking-widest">Stoles & Scarves</h3>
+                    </div>
+                    <button
+                        class="lg:hidden mt-4 w-full bg-white text-black py-3 rounded-xl font-bold uppercase text-[10px] tracking-widest shadow-lg">
+                        Request Quote
+                    </button>
+                </div>
+
+                <div
+                    class="hidden lg:flex absolute inset-0 items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/10">
+                    <button
+                        class="w-full bg-white text-black py-3.5 rounded-2xl font-bold text-xs uppercase tracking-[0.2em] shadow-2xl translate-y-6 group-hover:translate-y-0 transition-all duration-500 hover:bg-black hover:text-white">
+                        Request Quote
+                    </button>
+                </div>
+            </div>
+
+            <!-- Small Card 4 (Jewelry style) -->
+            <div class="md:col-span-1 group relative overflow-hidden rounded-3xl bg-gray-200 h-[400px] md:h-auto">
+                <img src="./IMG_3841-PhotoRoom_3_370x_bb8d9636-f450-4feb-8582-fca03c2a7bbc_370x.webp"
+                    class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 flex flex-col justify-end p-6">
+                    <p class="text-[10px] text-white/80 font-bold mb-2 uppercase tracking-wider">Material: Brass • MOQ:
+                        300</p>
+                    <div class="bg-black/60 backdrop-blur-lg border border-white/10 px-4 py-3 rounded-xl text-center">
+                        <h3 class="text-white text-sm font-bold uppercase tracking-widest">Jewelry</h3>
+                    </div>
+                    <button
+                        class="lg:hidden mt-4 w-full bg-white text-black py-3 rounded-xl font-bold uppercase text-[10px] tracking-widest shadow-lg">
+                        Request Quote
+                    </button>
+                </div>
+
+                <div
+                    class="hidden lg:flex absolute inset-0 items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/10">
+                    <button
+                        class="w-full bg-white text-black py-3.5 rounded-2xl font-bold text-xs uppercase tracking-[0.2em] shadow-2xl translate-y-6 group-hover:translate-y-0 transition-all duration-500 hover:bg-black hover:text-white">
+                        Request Quote
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <!-- Simple Modern Footer -->
     <footer
