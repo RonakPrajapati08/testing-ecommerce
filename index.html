@@ -344,134 +344,130 @@
                 </div>
             </div>
 
-            <!-- Product Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Product Grid - Modern Ecommerce Style -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
-                <!-- B2B Product Card 1 -->
+                <!-- Product Card 1 -->
                 <div
-                    class="group bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col">
+                    class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                     <!-- Image Container -->
-                    <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-gray-50">
                         <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&q=80&w=800"
                             alt="Product"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
-                        <!-- Badges -->
-                        <div class="absolute top-3 left-3 flex flex-col gap-2">
+                        <!-- Quick Badge -->
+                        <div class="absolute top-2 left-2">
                             <span
-                                class="bg-white/90 backdrop-blur-md px-2 py-1 text-[9px] font-bold uppercase text-gray-800 shadow-sm border border-white/20 rounded">ISO
-                                Certified</span>
-                            <span
-                                class="bg-green-600 px-2 py-1 text-[9px] font-bold uppercase text-white shadow-sm rounded">Ready
-                                to Ship</span>
-                        </div>
-                    </div>
-
-                    <!-- Product Info -->
-                    <div class="p-5 flex flex-col flex-grow">
-                        <div class="mb-4">
-                            <h3
-                                class="text-lg font-bold text-gray-900 line-clamp-1 mb-1 group-hover:text-green-800 transition-colors">
-                                Premium Embroidered Tunic</h3>
-                            <p class="text-[11px] text-gray-400 font-medium uppercase tracking-wider">SKU: VEL-ETH-042
-                            </p>
-                        </div>
-
-                        <!-- B2B Pricing Table (Small) -->
-                        <div class="grid grid-cols-2 gap-4 py-4 border-y border-gray-50 mb-5">
-                            <div class="border-r border-gray-50">
-                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-tighter">Approx. Price
-                                </p>
-                                <p class="text-md font-bold text-gray-900">$12.50 - $18.00 <span
-                                        class="text-[10px] font-normal text-gray-500">/ Piece</span></p>
-                            </div>
-                            <div class="pl-2">
-                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-tighter">Min. Order</p>
-                                <p class="text-md font-bold text-gray-900">100 Pieces</p>
-                            </div>
-                        </div>
-
-                        <!-- Specs List -->
-                        <ul class="text-[11px] text-gray-500 space-y-2 mb-6 flex-grow">
-                            <li class="flex justify-between"><span>Material:</span> <span
-                                    class="font-semibold text-gray-700">100% Pure Silk</span></li>
-                            <li class="flex justify-between"><span>Sizes:</span> <span
-                                    class="font-semibold text-gray-700">S, M, L, XL, XXL</span></li>
-                            <li class="flex justify-between"><span>Supply Ability:</span> <span
-                                    class="font-semibold text-gray-700">5000 Pcs / Month</span></li>
-                        </ul>
-
-                        <!-- Action Buttons -->
-                        <div class="flex gap-2">
-                            <button
-                                class="flex-1 bg-black text-white text-[10px] font-bold uppercase tracking-widest py-3 rounded hover:bg-gray-800 transition-colors">Get
-                                Best Quote</button>
-                            <button class="p-3 border border-gray-200 rounded hover:bg-gray-50 transition-colors">
-                                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
-                                    viewBox="0 0 24 24">
-                                    <path d="M12 5v14M5 12h14"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Repeat for Card 2 (Logic is same, change content) -->
-                <div
-                    class="group bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col">
-                    <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
-                        <img src="https://images.unsplash.com/photo-1551163943-3f6a855d1153?auto=format&fit=crop&q=80&w=800"
-                            alt="Product"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <div class="absolute top-3 left-3 flex flex-col gap-2">
-                            <span
-                                class="bg-white/90 backdrop-blur-md px-2 py-1 text-[9px] font-bold uppercase text-gray-800 shadow-sm border border-white/20 rounded">Export
+                                class="bg-white/90 backdrop-blur-sm px-2 py-1 text-[9px] font-bold uppercase text-green-700 rounded shadow-sm">Premium
                                 Quality</span>
                         </div>
                     </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <div class="mb-4">
+
+                    <!-- Product Details -->
+                    <div class="p-4 flex flex-col flex-grow">
+                        <!-- Title & Category -->
+                        <div class="mb-3">
                             <h3
-                                class="text-lg font-bold text-gray-900 line-clamp-1 mb-1 group-hover:text-green-800 transition-colors">
-                                Hand-loomed Cotton Shirt</h3>
-                            <p class="text-[11px] text-gray-400 font-medium uppercase tracking-wider">SKU: VEL-MOD-019
+                                class="text-md font-bold text-gray-900 line-clamp-1 group-hover:text-green-800 transition-colors serif-font">
+                                Premium Embroidered Tunic
+                            </h3>
+                            <p class="text-[11px] text-gray-500 line-clamp-2 mt-1 italic">
+                                Elegant hand-stitched floral patterns on high-quality fabric, perfect for modern ethnic
+                                styling.
                             </p>
                         </div>
-                        <div class="grid grid-cols-2 gap-4 py-4 border-y border-gray-50 mb-5">
-                            <div class="border-r border-gray-50">
-                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-tighter">Approx. Price
-                                </p>
-                                <p class="text-md font-bold text-gray-900">$8.00 - $12.50 <span
-                                        class="text-[10px] font-normal text-gray-500">/ Piece</span></p>
+
+                        <!-- Material & Sizes (Clean UI) -->
+                        <div class="space-y-3 mb-5 mt-auto">
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-[10px] font-bold uppercase text-gray-400 tracking-wider">Material:</span>
+                                <span class="text-[11px] font-medium text-gray-700 bg-gray-100 px-2 py-0.5 rounded">Pure
+                                    Silk</span>
                             </div>
-                            <div class="pl-2">
-                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-tighter">Min. Order</p>
-                                <p class="text-md font-bold text-gray-900">200 Pieces</p>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-bold uppercase text-gray-400 tracking-wider">Sizes:</span>
+                                <div class="flex gap-1">
+                                    <span
+                                        class="w-6 h-6 flex items-center justify-center border border-gray-200 text-[9px] font-bold text-gray-600 rounded">S</span>
+                                    <span
+                                        class="w-6 h-6 flex items-center justify-center border border-gray-200 text-[9px] font-bold text-gray-600 rounded">M</span>
+                                    <span
+                                        class="w-6 h-6 flex items-center justify-center border border-gray-200 text-[9px] font-bold text-gray-600 rounded">L</span>
+                                    <span
+                                        class="w-6 h-6 flex items-center justify-center border border-gray-200 text-[9px] font-bold text-gray-600 rounded">XL</span>
+                                </div>
                             </div>
                         </div>
-                        <ul class="text-[11px] text-gray-500 space-y-2 mb-6 flex-grow">
-                            <li class="flex justify-between"><span>Material:</span> <span
-                                    class="font-semibold text-gray-700">Organic Cotton</span></li>
-                            <li class="flex justify-between"><span>Sizes:</span> <span
-                                    class="font-semibold text-gray-700">Customized</span></li>
-                            <li class="flex justify-between"><span>Supply Ability:</span> <span
-                                    class="font-semibold text-gray-700">10k Pcs / Month</span></li>
-                        </ul>
-                        <div class="flex gap-2">
-                            <button
-                                class="flex-1 bg-black text-white text-[10px] font-bold uppercase tracking-widest py-3 rounded hover:bg-gray-800 transition-colors">Get
-                                Best Quote</button>
-                            <button class="p-3 border border-gray-200 rounded hover:bg-gray-50 transition-colors">
-                                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
-                                    viewBox="0 0 24 24">
-                                    <path d="M12 5v14M5 12h14"></path>
-                                </svg>
-                            </button>
-                        </div>
+
+                        <!-- Action Button -->
+                        <button
+                            class="w-full bg-black text-white text-[11px] font-bold uppercase tracking-widest py-3 rounded-md hover:bg-green-800 transition-colors flex items-center justify-center gap-2">
+                            Inquiry Now
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
-                <!-- More cards can be added here following the same structure -->
+                <!-- Product Card 2 (Same Structure) -->
+                <div
+                    class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-gray-50">
+                        <img src="https://images.unsplash.com/photo-1551163943-3f6a855d1153?auto=format&fit=crop&q=80&w=800"
+                            alt="Product"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute top-2 left-2">
+                            <span
+                                class="bg-white/90 backdrop-blur-sm px-2 py-1 text-[9px] font-bold uppercase text-green-700 rounded shadow-sm">Eco
+                                Friendly</span>
+                        </div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="mb-3">
+                            <h3
+                                class="text-md font-bold text-gray-900 line-clamp-1 group-hover:text-green-800 transition-colors serif-font">
+                                Hand-loomed Cotton Shirt
+                            </h3>
+                            <p class="text-[11px] text-gray-500 line-clamp-2 mt-1 italic">
+                                Breathable organic cotton fabric with a modern minimalist silhouette for daily comfort.
+                            </p>
+                        </div>
+                        <div class="space-y-3 mb-5 mt-auto">
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-[10px] font-bold uppercase text-gray-400 tracking-wider">Material:</span>
+                                <span
+                                    class="text-[11px] font-medium text-gray-700 bg-gray-100 px-2 py-0.5 rounded">Organic
+                                    Cotton</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-bold uppercase text-gray-400 tracking-wider">Sizes:</span>
+                                <div class="flex gap-1">
+                                    <span
+                                        class="w-6 h-6 flex items-center justify-center border border-gray-200 text-[9px] font-bold text-gray-600 rounded">M</span>
+                                    <span
+                                        class="w-6 h-6 flex items-center justify-center border border-gray-200 text-[9px] font-bold text-gray-600 rounded">L</span>
+                                    <span
+                                        class="w-6 h-6 flex items-center justify-center border border-gray-200 text-[9px] font-bold text-gray-600 rounded">XXL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full bg-black text-white text-[11px] font-bold uppercase tracking-widest py-3 rounded-md hover:bg-green-800 transition-colors flex items-center justify-center gap-2">
+                            Inquiry Now
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- More cards can be added using the same template -->
 
             </div>
 
